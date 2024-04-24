@@ -1,10 +1,11 @@
 .DEFAULT_GOAL := build
 
 CC := clang
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wvarargs -Wall -Wextra -Werror
 INCLUDE_HEADERS = -I../lib
 LDFLAGS := -L../lib
 LIBS := -lmylib
+C_STAN := c17
 
 .PHONY: clean build 
 
@@ -23,5 +24,5 @@ ifeq ($(wildcard build), )
 else
 	@echo "Build directory present"
 endif
-	$(CC) $(CFLAGS) main.c -o build/main $(INCLUDE_HEADERS) $(LDFLAGS) $(LIBS)
+	$(CC) -std=$(C_STAN) $(CFLAGS) main.c -o build/main $(INCLUDE_HEADERS) $(LDFLAGS) $(LIBS)
 	@echo "Executable 'main' created successfully in build directory"

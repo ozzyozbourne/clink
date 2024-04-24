@@ -1,9 +1,10 @@
 .DEFAULT_GOAL := build
 
 CC := clang
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wvarargs -Wall -Wextra -Werror
 OBJ_NAME := mylib.o
 STATIC_LIB_NAME = libmylib.a
+C_STAN := c17
 
 .PHONY: clean compile build 
 
@@ -16,7 +17,7 @@ else
 endif
 
 compile:
-	$(CC) $(CFLAGS) -c lib.c -o $(OBJ_NAME)
+	$(CC) -std=$(C_STAN) $(CFLAGS) -c lib.c -o $(OBJ_NAME)
 
 build: compile
 	ar rcs $(STATIC_LIB_NAME) $(OBJ_NAME)
