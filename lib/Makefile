@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build
 
 CC := clang
-CFLAGS := -Wvarargs -Wall -Wextra -Werror
+CFLAGS := -Wvarargs -Wall -Wextra -Werror -g
 OBJ_NAME := mylib.o
 STATIC_LIB_NAME = libmylib.a
 C_STAN := c17
@@ -9,11 +9,11 @@ C_STAN := c17
 .PHONY: clean compile build 
 
 clean: 
-ifeq ($(wildcard libmylib.a),)
-	@echo "libmylib.a not present"
+ifeq ($(wildcard $(STATIC_LIB_NAME)),)
+	@echo "$(STATIC_LIB_NAME) not present"
 else
-	@rm libmylib.a
-	@echo "libmylib.a deleted"
+	@rm $(STATIC_LIB_NAME)
+	@echo "$(STATIC_LIB_NAME) deleted"
 endif
 
 compile:
@@ -21,4 +21,4 @@ compile:
 
 build: compile
 	ar rcs $(STATIC_LIB_NAME) $(OBJ_NAME)
-	@echo "Static libary 'libmylib.a' build successfully"
+	@echo "Static libary '$(STATIC_LIB_NAME)' build successfully"
