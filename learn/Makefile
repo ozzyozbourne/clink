@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build
 
 CC := clang
-CFLAGS := -Wvarargs -Wall -Wextra -Werror -g
+CFLAGS := -Wvarargs -Wall -Wextra -Werror -fPIC -g
 INCLUDE_HEADERS = -I../lib -I../saga
 LDFLAGS := -L../lib -L/Users/ozzy/lang/c/Clink/saga
 LIBS := -lmylib -ldynamiclib
