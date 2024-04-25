@@ -1,8 +1,8 @@
 .DEFAULT_GOAL := build
 
 CC := clang
-CFLAGS := -Wvarargs -Wall -Wextra -Werror -g -fPIC -shared
-DYNAMIC_LIB_NAME := /Users/ozzy/lang/c/Clink/saga/libdynamiclib.dylib
+DYNAMIC_LIB_NAME := libdynamiclib.dylib
+CFLAGS := -Wvarargs -Wall -Wextra -Werror -g -fdeclspec -fPIC -dynamiclib -install_name @rpath/saga/$(DYNAMIC_LIB_NAME)
 C_STAN := c17
 
 .PHONY: clean build 

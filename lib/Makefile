@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build
 
 CC := clang
-CFLAGS := -Wvarargs -Wall -Wextra -Werror -fPIC -g
+CFLAGS := -Wvarargs -Wall -Wextra -Werror -fdeclspec -fPIC -g
 OBJ_NAME := mylib.o
 STATIC_LIB_NAME = libmylib.a
 C_STAN := c17
