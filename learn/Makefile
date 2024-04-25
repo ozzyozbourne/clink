@@ -3,14 +3,14 @@
 CC := clang
 CFLAGS := -Wvarargs -Wall -Wextra -Werror -fdeclspec -fPIC -g
 INCLUDE_HEADERS = -I../lib -I../saga
-LDFLAGS := -L../lib -L/Users/ozzy/lang/c/Clink/saga
+LDFLAGS := -L../lib -L../saga
 LIBS := -lmylib -ldynamiclib
 C_STAN := c17
 # The executable_path just need to go the @rpath location and dyld will add the rest as present the @rpath 
 # here the dynamic library is at @rpath/saga/libdynamiclib.dylib
 # do the @executable_path just need to go to the @rpath the dynamic linker will add the rest 
 # here the @rpath is ../../ ie executable_path need to go two directory up and the dynamic linker will add the rest 
-R_PATH := -Wl,-rpath,'@executable_path/../..'  
+R_PATH := -Wl,-rpath,@executable_path/../..  
 
 .PHONY: clean build 
 
